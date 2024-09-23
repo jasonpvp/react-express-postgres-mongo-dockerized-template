@@ -1,0 +1,53 @@
+{
+  "name": "jndvp",
+  "version": "1.0.0",
+  "description": "home page",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonpvp/jndvp.git"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.production.js",
+    "start": "webpack serve --config webpack.development.js",
+    "deploy": "npx wrangler pages deploy build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "Jason Van Pelt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonpvp/jndvp/issues"
+  },
+  "homepage": "https://github.com/jasonpvp/jndvp#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.5.5",
+    "@types/react": "^18.3.8",
+    "@types/react-dom": "^18.3.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "style-loader": "^4.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0",
+    "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
