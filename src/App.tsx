@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 
 import logo from './icons/logo.svg';
+import Test from './components/Test'
 
 export default class App extends React.Component {
   render() {
@@ -19,7 +20,7 @@ export default class App extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            <Test />
           </a>
         </header>
       </div>
