@@ -7,10 +7,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-    }),
-    new CopyPlugin({
-      patterns: [{ from: 'src/icons' }],
-    }),
+    })
   ],
   module: {
     rules: [
