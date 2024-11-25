@@ -20,23 +20,12 @@ import {
 } from "grommet";
 import { deepMerge } from "grommet/utils";
 import { Moon, Sun } from "grommet-icons";
-
-import {acme} from './theme'
-console.log({x:1, grommet:{...grommet}})
+import { Provider } from 'react-redux'
+import store from '../src/redux/store'
+import { acme } from './theme'
+console.log({ x: 1, grommet: { ...grommet } })
 const theme = deepMerge(grommet, acme)
-// {
-//   global: {
-//     colors: {
-//       brand: {light: '#999', dark: '#999'},
-//       text: {light: '#339', dark: '#339'},
-//     },
-//     font: {
-//       family: "Roboto",
-//       size: "18px",
-//       height: "20px",
-//     },
-//   },
-// });
+import Test from './components/Test'
 
 const AppBar = (props: Record<string, any>) => (
   <Header
@@ -48,40 +37,43 @@ const AppBar = (props: Record<string, any>) => (
 );
 
 export default function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   return (
-    <Grommet theme={theme} full themeMode={dark ? "dark" : "light"}>
-      <Page>
-        <AppBar>
-          <Text size="large">PlanitX</Text>
-          <Button
-            a11yTitle={dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            icon={dark ? <Moon /> : <Sun />}
-            onClick={() => setDark(!dark)}
-            tip={{
-              content: (
-                <Box
-                  pad="small"
-                  round="small"
-                  background={dark ? "dark-1" : "light-3"}
-                >
-                  {dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-                </Box>
-              ),
-              plain: true,
-            }}
-          />
-        </AppBar>
-        <PageContent>
-          <PageHeader title="Welcome to Grommet!" />
-          <Grid columns="medium" gap="large" pad={{ bottom: "large" }}>
-            <CardTemplate title={"Card 1"} />
-            <CardTemplate title={"Card 2"} />
-            <CardTemplate title={"Card 3"} />
-          </Grid>
-        </PageContent>
-      </Page>
-    </Grommet>
+    <Provider store={store}>
+      <Grommet theme={theme} full themeMode={dark ? "dark" : "light"}>
+        <Page>
+          <AppBar>
+            <Text size="large">PlanitX</Text>
+            <Button
+              a11yTitle={dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              icon={dark ? <Moon /> : <Sun />}
+              onClick={() => setDark(!dark)}
+              tip={{
+                content: (
+                  <Box
+                    pad="small"
+                    round="small"
+                    background={dark ? "dark-1" : "light-3"}
+                  >
+                    {dark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                  </Box>
+                ),
+                plain: true,
+              }}
+            />
+          </AppBar>
+          <PageContent>
+            <PageHeader title="Welcome to Grommet!" />
+            <Grid columns="medium" gap="large" pad={{ bottom: "large" }}>
+              <CardTemplate title={"Card 1"} />
+              <CardTemplate title={"Card 2"} />
+              <CardTemplate title={"Card 3"} />
+            </Grid>
+            <Test />
+          </PageContent>
+        </Page>
+      </Grommet>
+    </Provider>
   );
 
 }
