@@ -22,6 +22,7 @@ https://developers.cloudflare.com/cache/cache-security/cors/
 
 grommet
 https://v2.grommet.io/components
+https://icons.grommet.io/?s=save
 
 neuroporphism
 https://wpdean.com/css-neumorphism/
@@ -35,6 +36,8 @@ mongo graph https://medium.com/mongodb-performance-tuning/optimising-graph-looku
 create document https://mongoosejs.com/docs/typescript.html
 mongoose types https://mongoosejs.com/docs/schematypes.html#dates
 mongo typescript https://www.bretcameron.com/blog/using-typescript-with-mongo-db-combine-the-power-of-typescript-and
+mongo import https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/
+file sync https://skaffold.dev/docs/filesync/
 
 # Data demo
 

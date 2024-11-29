@@ -1,0 +1,19 @@
+db.users.find()
+use planitx
+db.users.find()
+exit
+show collections
+use planitx
+show dbs
+show collections
+exit
+show dbs
+db.users.find()
+show collections
+use test
+show dbs
+show collections
+help
+show dbs
+show users
+show dbs
