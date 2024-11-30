@@ -39,6 +39,11 @@ mongo typescript https://www.bretcameron.com/blog/using-typescript-with-mongo-db
 mongo import https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/
 file sync https://skaffold.dev/docs/filesync/
 
+postgres
+https://node-postgres.com/features/connecting
+https://docs.docker.com/engine/storage/volumes/
+search: https://risingwave.com/blog/implementing-high-performance-full-text-search-in-postgres/
+
 # Data demo
 
 ## Feature
