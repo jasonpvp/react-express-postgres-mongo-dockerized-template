@@ -35,8 +35,14 @@ services:
       - "5432:5432"
 
   app:
-    build: ./server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: base
     restart: always
+    volumes:
+      - ./server/src:/app/src
+      - ./server/nodemon.json:/app/nodemon.json
     environment:
       MONGO_URI: mongodb://planitx:planitx@mongodb:27017/?authSource=planitx
       MONGO_INITDB_DATABASE: planitx
@@ -50,6 +56,8 @@ services:
     depends_on:
       postgres:
        condition: service_healthy
+    command: npm run dev
+
 volumes:
   pgdata:
   mongoData:

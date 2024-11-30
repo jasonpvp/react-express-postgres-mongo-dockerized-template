@@ -1,6 +1,6 @@
 const pg = require('pg')
 
-const testPsql = async () => {
+export default async function testPsql(): Promise<any> {
   const { Pool, Client } = pg
 
   // pools will use environment variables
@@ -23,4 +23,3 @@ const testPsql = async () => {
   // await client.end()
 }
 
-module.exports = testPsql

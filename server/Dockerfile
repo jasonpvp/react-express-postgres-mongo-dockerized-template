@@ -1,6 +1,6 @@
 
 # Use the official Node.js 14 image as a base
-FROM node:20.17.0
+FROM node:20.17.0 as base
 RUN apt update
 RUN apt install gnupg curl vim -y
 
@@ -21,4 +21,9 @@ COPY . .
 EXPOSE 3000
 
 # Run the application when the container is started
-CMD ["node", "app.js"]
+#CMD ["node", "app.js"]
+
+# production build
+FROM base as production
+ENV NODE_PATH=./build
+RUN npm run build
