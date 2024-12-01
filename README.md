@@ -5,7 +5,7 @@ Template for a web app with dockerized setup.
   - Hot reloading
   - [Grommet](https://v2.grommet.io/)
 - Express 4
-  - Hot reloading
+  - Nodemon
 - Postgres 17
 - Mongo 6
 
