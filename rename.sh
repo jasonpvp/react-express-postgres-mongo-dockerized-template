@@ -9,7 +9,7 @@ echo "Replacing WEB_APP_NAME with '$appName'"
 grep --exclude rename.sh -rl WEB_APP_NAME ./ | xargs sed -i '' -e s/WEB_APP_NAME/appName/g
 
 echo "Replacing WEB_APP_ROOT_USER_PWD with '$dbRootPwd'"
-grep --exclude rename.sh -rl WEB_APP_ROOT_USER_PWD ./ | xargs sed -i '' -e s/WEB_APP_ROOT_USER_PWD/appDbName/g
+grep --exclude rename.sh -rl WEB_APP_ROOT_USER_PWD ./ | xargs sed -i '' -e s/WEB_APP_ROOT_USER_PWD/dbRootPwd/g
 
 echo "Replacing WEB_APP_DB_NAME with '$appDbName'"
 grep --exclude rename.sh -rl WEB_APP_DB_NAME ./ | xargs sed -i '' -e s/WEB_APP_DB_NAME/appDbName/g
