@@ -18,6 +18,10 @@ Why two databases? Just trying things out. Feel free to remove whichever you don
   - Scripted in Linux: install `grep`, `xargs`, and `sed`. Run `./rename.sh`
   - Manually: Search for any variables starting with `WEB_APP` and update
 - `docker-compose up -d`
+- [View web app](http://localhost:8080)
+- [Query Postgres via the web server](http://localhost:3000/psql)
+- [Query Mongo via the web server](http://localhost:3000/users)
+
 
 ## Production
 TODO: Setup production build/dev options
