@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
   mongodb:
@@ -6,10 +6,10 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: planitx
-      MONGO_INITDB_DATABASE: planitx
-      MONGO_ADMIN_USERNAME: planitx
-      MONGO_ADMIN_PASSWORD: planitx
+      MONGO_INITDB_ROOT_PASSWORD: WEB_APP_ROOT_USER_PWD
+      MONGO_INITDB_DATABASE: WEB_APP_DB_NAME
+      MONGO_ADMIN_USERNAME: WEB_APP_DB_USER
+      MONGO_ADMIN_PASSWORD: WEB_APP_DB_PWD
     volumes:
       - mongoData:/data/db
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
@@ -21,9 +21,9 @@ services:
     build: ./postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: planitx
-      POSTGRES_USER: planitx
-      POSTGRES_DB: planitx
+      POSTGRES_PASSWORD: WEB_APP_ROOT_USER_PWD
+      POSTGRES_USER: WEB_APP_DB_USER
+      POSTGRES_DB: WEB_APP_DB_PWD
     volumes:
       - pgdata:/var/lib/postgresql/data 
     healthcheck:
@@ -34,7 +34,7 @@ services:
     ports:
       - "5432:5432"
 
-  app:
+  server:
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -44,19 +44,34 @@ services:
       - ./server/src:/app/src
       - ./server/nodemon.json:/app/nodemon.json
     environment:
-      MONGO_URI: mongodb://planitx:planitx@mongodb:27017/?authSource=planitx
-      MONGO_INITDB_DATABASE: planitx
-      PGUSER: planitx
-      PGPASSWORD: planitx
+      MONGO_URI: mongodb://WEB_APP_DB_USER:WEB_APP_DB_PWD@mongodb:27017/?authSource=WEB_APP_DB_NAME
+      MONGO_INITDB_DATABASE: WEB_APP_DB_NAME
+      PGUSER: WEB_APP_DB_USER
+      PGPASSWORD: WEB_APP_DB_PWD
       PGHOST: postgres
       PGPORT: 5432
-      PGDATABASE: planitx
+      PGDATABASE: WEB_APP_DB_NAME
     ports:
       - "3000:3000"
     depends_on:
       postgres:
        condition: service_healthy
     command: npm run dev
+
+  webui:
+    build:
+      context: ./webui
+      dockerfile: Dockerfile
+    restart: always
+    command: npm start
+    volumes:
+      - ./webui:/app
+    depends_on:
+      - server
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
 
 volumes:
   pgdata:

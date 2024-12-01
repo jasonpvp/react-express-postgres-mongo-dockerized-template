@@ -1,4 +1,4 @@
-\c planitx
+\c WEB_APP_NAME
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -19,7 +19,7 @@ CREATE TABLE items (
 );
 
 INSERT INTO users (first_name, last_name, email) VALUES
-  ('test', 'user', 'planitx@email.com');
+  ('test', 'user', 'test-user@email.com');
 
 INSERT INTO items (title, description) VALUES
   ('ticket 1', 'This is the description of ticket 1'),

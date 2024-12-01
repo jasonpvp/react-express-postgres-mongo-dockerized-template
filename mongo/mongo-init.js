@@ -4,9 +4,7 @@ db = db.getSiblingDB(process.env.MONGO_INITDB_DATABASE);
 
 // Create a new collection and insert documents
 db.users.insert([
-  { name: 'Document 1' },
-  { name: 'Document 2' },
-  { name: 'Document 3' }
+  { first_name: 'test', last_name: 'user', email: 'test-user@email.com' }
 ]);
 
 // Create a user with read and write privileges for the database

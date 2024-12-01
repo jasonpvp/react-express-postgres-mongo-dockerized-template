@@ -1,51 +1,24 @@
-# PlanitX
-Project management, plus everything that comes before and after
-- track concepts and ideas
-- see dependencies between everything
-- template for project release processes, cheklist, etc
-- features have a lifecycle from conception to EOL, with their whole life tracked inbetween
+# React/Grommet, Express, Postgres/Mongo web app template
 
-https://dev.to/thelandolorien/how-to-setup-a-react-app-with-typescript-webpack-from-scratch-19cd
-https://blog.jakoblind.no/css-modules-webpack/
-https://stackoverflow.com/questions/69056475/cannot-find-module-module-css-or-its-corresponding-type-declarations
-https://stackoverflow.com/questions/41336858/how-to-import-css-modules-with-typescript-react-and-webpack
-https://mui.com/material-ui/integrations/interoperability/#css-modules
+Template for a web app with dockerized setup.
+- React 18
+  - [Grommet](https://v2.grommet.io/)
+- Express 4
+- Postgres 17
+- Mongo 6
 
-npx wrangler pages deploy build
+TODO: Setup production build/deploy options
 
-https://developers.cloudflare.com/pages/get-started/direct-upload/#wrangler-cli
-https://developers.cloudflare.com/d1/get-started/
-https://developers.cloudflare.com/d1/platform/limits/
-https://developers.cloudflare.com/kv/get-started/
-https://developers.cloudflare.com/cache/cache-security/cors/
+Why two databases? Just trying things out. Feel free to remove whichever you don't want.
 
 
-grommet
-https://v2.grommet.io/components
-https://icons.grommet.io/?s=save
+## Local development
+- Install [Docker desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
+- Reset the template vars
+  - Scripted in Linux: install `grep`, `xargs`, and `sed`. Run `./rename.sh`
+  - Manually: Search for any variables starting with `WEB_APP` and update
+- `docker-compose up -d`
 
-neuroporphism
-https://wpdean.com/css-neumorphism/
-https://github.com/r1beguin/grommetapp
-
-mongo node
-https://medium.com/zenofai/how-to-build-a-node-js-and-mongodb-application-with-docker-containers-15e535baabf5
-https://www.mongodb.com/resources/products/compatibilities/using-typescript-with-mongodb-tutorial
-https://thelinuxcode.com/mongodb-with-typescript/
-mongo graph https://medium.com/mongodb-performance-tuning/optimising-graph-lookups-in-mongodb-49483afb55c8
-create document https://mongoosejs.com/docs/typescript.html
-mongoose types https://mongoosejs.com/docs/schematypes.html#dates
-mongo typescript https://www.bretcameron.com/blog/using-typescript-with-mongo-db-combine-the-power-of-typescript-and
-mongo import https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/
-file sync https://skaffold.dev/docs/filesync/
-
-postgres
-https://node-postgres.com/features/connecting
-https://docs.docker.com/engine/storage/volumes/
-search: https://risingwave.com/blog/implementing-high-performance-full-text-search-in-postgres/
-
-# Data demo
-
-## Feature
-
-## 
+## Production
+TODO: Setup production build/dev options
+- Partial example: `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up`

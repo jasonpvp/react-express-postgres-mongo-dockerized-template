@@ -1,11 +1,11 @@
 {
-  "name": "jndvp",
+  "name": "WEB_APP_NAME-webui",
   "version": "1.0.0",
   "description": "home page",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasonpvp/jndvp.git"
+    "url": "git@github.com:jasonpvp/react-express-postgres-mongo-dockerized-template.git"
   },
   "scripts": {
     "build": "webpack --config webpack.production.js",
@@ -21,9 +21,9 @@
   "author": "Jason Van Pelt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jasonpvp/jndvp/issues"
+    "url": "git@github.com:jasonpvp/react-express-postgres-mongo-dockerized-template.gitissues"
   },
-  "homepage": "https://github.com/jasonpvp/jndvp#readme",
+  "homepage": "git@github.com:jasonpvp/react-express-postgres-mongo-dockerized-template.git#readme",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
