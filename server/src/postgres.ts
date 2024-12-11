@@ -2,7 +2,6 @@ const pg = require('pg')
 
 export default async function testPsql(): Promise<any> {
   const { Pool, Client } = pg
-
   // pools will use environment variables
   // for connection information
   const pool = new Pool()
@@ -23,3 +22,15 @@ export default async function testPsql(): Promise<any> {
   // await client.end()
 }
 
+// const pg = require('knex')({
+//   client: 'pg',
+//   connection: {
+//     // connectionString: ,
+//     host: process.env.PGHOST,
+//     port: process.env.PGPORT,
+//     user: process.env.PGUSER,
+//     database: process.env.PGDATABASE,
+//     password: process.env.PGPASSWORD,
+//     ssl: false,
+//   },
+// });

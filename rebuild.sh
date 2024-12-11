@@ -5,4 +5,4 @@ docker container rm WEB_APP_NAME-server-1
 docker volume rm WEB_APP_NAME_pgdata
 docker volume rm WEB_APP_NAME_mongoData
 docker-compose build
-docker-compose up
+docker-compose up -d

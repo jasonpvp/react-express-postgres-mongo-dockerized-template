@@ -5,6 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_PATH=./build node build/index.js",
+    "genDbTypes": "read -p 'Password: ' -s pwd && PGHOST=localhost PGPORT=5432 PGUSER=WEB_APP_DB_NAME PGPASSWORD=$pwd PGDATABASE=WEB_APP_DB_NAME node generateDbTypes.js",
+    "migrateDb": "read -p 'Password: ' -s pwd && PGHOST=localhost PGPORT=5432 PGUSER=WEB_APP_DB_NAME PGPASSWORD=$pwd PGDATABASE=WEB_APP_DB_NAME knex migrate:latest",
+    "rollbackDb": "read -p 'Password: ' -s pwd && PGHOST=localhost PGPORT=5432 PGUSER=WEB_APP_DB_NAME PGPASSWORD=$pwd PGDATABASE=WEB_APP_DB_NAME knex migrate:rollback",
+    "createMigration": "read -p 'Migration name: ' name && knex migrate:make $name -x ts",
     "build": "tsc -p .",
     "dev": "nodemon src/index.ts"
   },
@@ -13,12 +17,15 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/node": "^22.10.1",
     "express": "^4.21.1",
+    "knex": "^3.1.0",
     "mongodb": "^6.11.0",
     "pg": "^8.13.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "knex-types": "^0.5.0",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"

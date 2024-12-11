@@ -2,11 +2,14 @@
 
 Template for a web app with dockerized setup.
 - React 18
+  - Typescript
   - Hot reloading
   - [Grommet](https://v2.grommet.io/)
   - Redux toolkit
 - Express 4
   - Nodemon
+  - Typescript
+  - Knex
 - Postgres 17
 - Mongo 6
 
