@@ -7,6 +7,7 @@
     "start": "NODE_PATH=./build node build/index.js",
     "genDbTypes": "read -p 'Password: ' -s pwd && PGHOST=localhost PGPORT=5432 PGUSER=WEB_APP_DB_NAME PGPASSWORD=$pwd PGDATABASE=WEB_APP_DB_NAME node generateDbTypes.js",
     "migrateDb": "read -p 'Password: ' -s pwd && PGHOST=localhost PGPORT=5432 PGUSER=WEB_APP_DB_NAME PGPASSWORD=$pwd PGDATABASE=WEB_APP_DB_NAME knex migrate:latest",
+    "migrateDbAndRunDev": "nc -z -v -w5 $PGHOST $PGPORT && PGHOST=$PGHOST PGPORT=$PGPORT PGUSER=$PGUSER PGPASSWORD=$PGPASSWORD PGDATABASE=$PGDATABASE knex migrate:latest && nodemon src/index.ts",
     "rollbackDb": "read -p 'Password: ' -s pwd && PGHOST=localhost PGPORT=5432 PGUSER=WEB_APP_DB_NAME PGPASSWORD=$pwd PGDATABASE=WEB_APP_DB_NAME knex migrate:rollback",
     "createMigration": "read -p 'Migration name: ' name && knex migrate:make $name -x ts",
     "build": "tsc -p .",
