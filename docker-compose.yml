@@ -1,5 +1,7 @@
 version: '3.7'
 
+name: WEB_APP_NAME
+
 services:
   mongodb:
     build: ./mongo
